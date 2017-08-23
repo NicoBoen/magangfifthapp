@@ -1,0 +1,15 @@
+PODS:
+  - Alamofire (4.5.0)
+  - SwiftHSVColorPicker (1.1.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - SwiftHSVColorPicker
+
+SPEC CHECKSUMS:
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  SwiftHSVColorPicker: 69c9028dea168e0f8ee2439d31a899cf1df95678
+
+PODFILE CHECKSUM: 30be7da96dda06068a0a598917ff6ee2a692b55b
+
+COCOAPODS: 1.2.1
