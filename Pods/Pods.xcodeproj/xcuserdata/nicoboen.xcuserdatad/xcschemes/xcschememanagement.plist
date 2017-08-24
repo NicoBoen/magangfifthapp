@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>IMGLYColorPicker-IMGLYColorPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>IMGLYColorPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Text Changeable.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,6 +47,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3B9535CC60FD2023A9AA15FA9A1647FB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5133668E93D65C29DE0DDBC51E9E101D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>63A6A94572F3CE4861125C728FA57F0B</key>
 		<dict>
 			<key>primary</key>
@@ -47,12 +67,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>890567466A2CCAD6C50FCF0B93664FD9</key>
+		<key>D291163F2E18477ACE560FE6EE5BF8E9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F4DA47BBF006302D9474C14B73D0B358</key>
+		<key>D3D9198FCE9EF2553C08716C341C039B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

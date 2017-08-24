@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.5.0)
+  - IMGLYColorPicker (1.0.0)
   - SwiftHSVColorPicker (1.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
+  - IMGLYColorPicker
   - SwiftHSVColorPicker
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  IMGLYColorPicker: 10e4c27a332009a0318877b098ffef462087f6f5
   SwiftHSVColorPicker: 69c9028dea168e0f8ee2439d31a899cf1df95678
 
-PODFILE CHECKSUM: 30be7da96dda06068a0a598917ff6ee2a692b55b
+PODFILE CHECKSUM: a9736c67cad77d03133dc8b9a028b3317683f847
 
 COCOAPODS: 1.2.1

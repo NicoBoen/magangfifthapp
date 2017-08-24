@@ -7,16 +7,20 @@
 //
 
 import UIKit
-import SwiftHSVColorPicker
+import IMGLYColorPicker
 
 class ViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate{
 
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet var textfieldGesture: UIPanGestureRecognizer!
     @IBOutlet weak var slide: UISlider!
+    var minimumvalue: CGFloat = 8
     @IBAction func textfieldSlider(_ sender: Any) {
-        let fontsize = CGFloat(slide.value)
-        myTextField.font = UIFont(name: myTextField.font!.fontName, size: fontsize * 30)
+        //let fontsize = CGFloat(slide.value)
+        //myTextField.font = UIFont(name: myTextField.font!.fontName, size: fontsize * 30)
+        
+        myTextField.font = myTextField.font?.withSize(CGFloat(slide.value))
+        myTextField.frame.size.height = CGFloat(slide.value * 2)
     }
     @IBOutlet weak var fontTombol: UIButton!
     @IBOutlet weak var colorTombol: UIButton!
@@ -24,23 +28,27 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBAction func fontButton(_ sender: Any) { 
         self.performSegue(withIdentifier: "segue", sender: sender)
     }
-    
-    let colorPicker = SwiftHSVColorPicker(frame: CGRect(x: 700, y: 20, width: 300, height: 300))
+
+    let colorPicker = ColorPickerView()
     
     @IBAction func colorButton(_ sender: Any) {
-        if colorPicker.isHidden == true {
+        //Ini kodingan membuat IMGLYColorPickernya
+        colorPicker.frame = CGRect(x: 700, y: 20, width: 300, height: 300)
+        self.view.addSubview(colorPicker)
+        colorPicker.color = UIColor.red
+        colorPicker.addTarget(self, action: #selector(PemicuAgarTextWarnaBerubah), for: .valueChanged)
+
+        if colorPicker.isHidden == true{
             colorPicker.isHidden = false
         }else{
             colorPicker.isHidden = true
         }
     }
     
-    @IBAction func okButton(_ sender: Any) {
+    func PemicuAgarTextWarnaBerubah(){
         let selectedcolor = colorPicker.color
-         myTextField.textColor = selectedcolor
-        
+        myTextField.textColor = selectedcolor
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +56,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         myTextField.addGestureRecognizer(gesture)
         myTextField.isUserInteractionEnabled = true
     }
-    var red: CGFloat = 0
-    var green: CGFloat = 0
-    var blue: CGFloat = 0
-    
+
     override var shouldAutorotate: Bool {
         return true
     }
@@ -66,10 +71,12 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        if segue.identifier == "segue"{
+            let data: PopoverViewController = segue.destination as! PopoverViewController
+            data.Delegate = self
+        }
         
-        let firstVC: FirstViewController = segue.destination as! FirstViewController
-        firstVC.Delegate = self
-        //firstVC.ayam = self
+        //firstVC.ayam = self  ; cara WeCe
         
         if segue.identifier == "segue"{
             let popoverVC = segue.destination
@@ -81,20 +88,14 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         //        //Force popover style
                 return .none
     }
-    
-    
-    
+
     func textFieldDidBeginEditing(_ textField: UITextField) {
         slide.isHidden = false
         colorTombol.isHidden = false
         fontTombol.isHidden = false
-        okTombol.isHidden = false
-        
-        //Ini kodingan membuat HSVColornya
-        self.view.addSubview(colorPicker)
-        colorPicker.isHidden = true
-        colorPicker.setViewColor(UIColor.red)
-        
+        //okTombol.isHidden = false
+
+        //Ini utk menyembunyikna border texfieldnya
         if myTextField.borderStyle == .none {
             myTextField.borderStyle = .roundedRect
         }
@@ -110,22 +111,26 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         let fontFamilyButton = UIBarButtonItem(customView: self.fontTombol)
         let fontSizeSlider = UIBarButtonItem(customView: self.slide)
         let colorButton = UIBarButtonItem(customView: self.colorTombol)
-        let okButton = UIBarButtonItem(customView: self.okTombol)
-        toolbar.setItems([fontFamilyButton, fontSizeSlider, colorButton, okButton], animated: true)
+        toolbar.setItems([fontFamilyButton, fontSizeSlider, colorButton], animated: true)
         myTextField.inputAccessoryView = toolbar
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        myTextField.borderStyle = UITextBorderStyle.none
+        
+        if myTextField.text != "" {
+            myTextField.borderStyle = .none
+        }
+        colorPicker.isHidden = true
         
         return true
     }
 
 }
-extension ViewController: firstVCDelegate{
-    func firstViewControllerDidFinish(_ firstVC: FirstViewController) {
-        self.myTextField.font = firstVC.myIndex
+extension ViewController: PopVCDelegate{
+    func PopViewControllerDidFinish(data: UIFont) {
+        //self.myTextField.font = firstVC.myIndex
+        self.myTextField.font = data
     }
 }
 

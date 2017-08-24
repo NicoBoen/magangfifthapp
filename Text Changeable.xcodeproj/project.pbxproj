@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		667C92F01F4BBE7700D8015B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C92EF1F4BBE7700D8015B /* FirstViewController.swift */; };
+		667C92F01F4BBE7700D8015B /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667C92EF1F4BBE7700D8015B /* PopoverViewController.swift */; };
 		6683A1811F4A7295002EF5D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6683A1801F4A7295002EF5D8 /* AppDelegate.swift */; };
 		6683A1831F4A7295002EF5D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6683A1821F4A7295002EF5D8 /* ViewController.swift */; };
 		6683A1861F4A7295002EF5D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6683A1841F4A7295002EF5D8 /* Main.storyboard */; };
@@ -40,7 +40,7 @@
 /* Begin PBXFileReference section */
 		23CA67DDC61AF65BB625948F /* Pods_Text_Changeable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Text_Changeable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25F3A3E23FB09B357E965979 /* Pods-Text ChangeableTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Text ChangeableTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Text ChangeableTests/Pods-Text ChangeableTests.release.xcconfig"; sourceTree = "<group>"; };
-		667C92EF1F4BBE7700D8015B /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		667C92EF1F4BBE7700D8015B /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		6683A17D1F4A7295002EF5D8 /* Text Changeable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Text Changeable.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6683A1801F4A7295002EF5D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6683A1821F4A7295002EF5D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				6683A1801F4A7295002EF5D8 /* AppDelegate.swift */,
 				6683A1821F4A7295002EF5D8 /* ViewController.swift */,
 				6683A1841F4A7295002EF5D8 /* Main.storyboard */,
-				667C92EF1F4BBE7700D8015B /* FirstViewController.swift */,
+				667C92EF1F4BBE7700D8015B /* PopoverViewController.swift */,
 				6683A1871F4A7295002EF5D8 /* Assets.xcassets */,
 				6683A1891F4A7295002EF5D8 /* LaunchScreen.storyboard */,
 				6683A18C1F4A7295002EF5D8 /* Info.plist */,
@@ -449,7 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				667C92F01F4BBE7700D8015B /* FirstViewController.swift in Sources */,
+				667C92F01F4BBE7700D8015B /* PopoverViewController.swift in Sources */,
 				6683A1831F4A7295002EF5D8 /* ViewController.swift in Sources */,
 				6683A1811F4A7295002EF5D8 /* AppDelegate.swift in Sources */,
 			);

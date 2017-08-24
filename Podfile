@@ -8,6 +8,7 @@ target 'Text Changeable' do
   # Pods for Text Changeable
 	pod 'Alamofire', '~> 4.4'
 	pod ‘SwiftHSVColorPicker’
+	pod ‘IMGLYColorPicker’
 
   target 'Text ChangeableTests' do
     inherit! :search_paths
