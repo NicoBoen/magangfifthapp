@@ -14,12 +14,13 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     @IBOutlet weak var myTextField: UITextField!
     @IBOutlet var textfieldGesture: UIPanGestureRecognizer!
     @IBOutlet weak var slide: UISlider!
-    var minimumvalue: CGFloat = 8
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     @IBAction func textfieldSlider(_ sender: Any) {
         //let fontsize = CGFloat(slide.value)
         //myTextField.font = UIFont(name: myTextField.font!.fontName, size: fontsize * 30)
         
         myTextField.font = myTextField.font?.withSize(CGFloat(slide.value))
+        
         myTextField.frame.size.height = CGFloat(slide.value * 2)
     }
     @IBOutlet weak var fontTombol: UIButton!
@@ -33,18 +34,21 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     
     @IBAction func colorButton(_ sender: Any) {
         //Ini kodingan membuat IMGLYColorPickernya
-        colorPicker.frame = CGRect(x: 700, y: 20, width: 300, height: 300)
+        colorPicker.frame = CGRect(x: 150, y: 20, width: 300, height: 300)
         self.view.addSubview(colorPicker)
         colorPicker.color = UIColor.red
         colorPicker.addTarget(self, action: #selector(PemicuAgarTextWarnaBerubah), for: .valueChanged)
 
         if colorPicker.isHidden == true{
             colorPicker.isHidden = false
-        }else{
-            colorPicker.isHidden = true
-        }
+        }//else{
+          //  colorPicker.isHidden = true
+        //}
     }
     
+    @IBAction func tapGestureAction(_ sender: Any) {
+        colorPicker.isHidden = true
+    }
     func PemicuAgarTextWarnaBerubah(){
         let selectedcolor = colorPicker.color
         myTextField.textColor = selectedcolor
@@ -55,6 +59,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.userDragged(gesture:)))
         myTextField.addGestureRecognizer(gesture)
         myTextField.isUserInteractionEnabled = true
+        myTextField.font?.withSize(22)
     }
 
     override var shouldAutorotate: Bool {
@@ -67,6 +72,7 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
     func userDragged(gesture: UIPanGestureRecognizer){
         let loc = gesture.location(in: self.view)
         self.myTextField.center = loc
+        self.colorPicker.center = loc
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -74,10 +80,11 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
         if segue.identifier == "segue"{
             let data: PopoverViewController = segue.destination as! PopoverViewController
             data.Delegate = self
+            data.slideValue = CGFloat(slide.value)
         }
         
         //firstVC.ayam = self  ; cara WeCe
-        
+        print("VC\(slide.value)")
         if segue.identifier == "segue"{
             let popoverVC = segue.destination
             popoverVC.popoverPresentationController?.delegate = self
@@ -129,8 +136,8 @@ class ViewController: UIViewController, UIPopoverPresentationControllerDelegate,
 }
 extension ViewController: PopVCDelegate{
     func PopViewControllerDidFinish(data: UIFont) {
-        //self.myTextField.font = firstVC.myIndex
         self.myTextField.font = data
+        
     }
 }
 

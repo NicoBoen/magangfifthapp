@@ -20,6 +20,7 @@ class PopoverViewController: UIViewController {
     var myIndex: UIFont!
     var temp: String!
     //var ayam: ViewController?
+    var slideValue:CGFloat!
     
     @IBOutlet weak var tableView: UITableView!
     var Delegate: PopVCDelegate?
@@ -34,7 +35,8 @@ class PopoverViewController: UIViewController {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myIndex = UIFont(name: list[indexPath.row], size: 14)
+        
+         myIndex = UIFont(name: list[indexPath.row], size: slideValue)
         //Delegate?.PopViewControllerDidFinish(self)
         
         if Delegate != nil{
